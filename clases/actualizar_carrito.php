@@ -32,7 +32,7 @@ function agregar($id, $cantidad){
     $res = 0;
     if($id>0 && $cantidad > 0 && is_numeric(($cantidad))){
         if(isset($_SESSION['carrito']['productos'][$id])){
-            $_SESSION['carrito']['producto'][$id] = $cantidad;
+            $_SESSION['carrito']['productos'][$id] = $cantidad;
 
             $db = new Database();
             $con = $db->conectar();

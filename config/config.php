@@ -1,4 +1,6 @@
 <?php
+define("CLIENT_ID","AWPqbAPD1M65KmDUpW0xOi4Vsa78fjjWB9Nw1iyg4NKfe_cRIgaBYCcKbO5FAfVtlod5-uJ56nz2_oTR");
+define("CURRENCY","USD");
 define("kEY_TOKEN","APR.wqc-354*");
 define("MONEDA", "$");
 

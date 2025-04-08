@@ -42,7 +42,7 @@ if($productos != null){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
-</head>
+
 <body>
     <!-- Navbar --> 
     <header>
@@ -98,30 +98,31 @@ if($productos != null){
                             $nombre = $producto['nombre'];
                             $precio = $producto['precio'];
                             $descuento = $producto['descuento'];
-                            $precio_desc = $precio - (($precio * $descuento) / 100);
                             $cantidad = $producto['cantidad']; 
+                            $precio_desc = $precio - (($precio * $descuento) / 100);
                             $subtotal = $cantidad * $precio_desc;
                             $total += $subtotal;
                     ?>
-                            <td><?php echo $nombre; ?></td>
-                            <td><?php echo MONEDA . number_format($precio_desc, 2, '.', ','); ?></td>
-                            <td>
-                                <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad; ?>"
-                                    size="5" id="cantidad_<?php echo $_id; ?>" 
-                                    onchange="actualizaCantidad(this.value,<?php echo $_id?>)">
-                            </td>
-                            <td>
-                                <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]">
-                                    <?php echo MONEDA . number_format($subtotal, 2, '.', ','); ?>
-                                </div>
-                            </td>
-                            <td>
-                                <a id="eliminar" class="btn btn-warning btn-sm" 
-                                    data-bs-id="<?php echo $_id; ?>" 
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#eliminaModal">Eliminar</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><?php echo $nombre; ?></td>
+                                <td><?php echo MONEDA . number_format($precio_desc, 2, '.', ','); ?></td>
+                                <td>
+                                    <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad; ?>"
+                                        size="5" id="cantidad_<?php echo $_id; ?>" 
+                                        onchange="actualizaCantidad(this.value,<?php echo $_id?>)">
+                                </td>
+                                <td>
+                                    <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]">
+                                        <?php echo MONEDA . number_format($subtotal, 2, '.', ','); ?>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="eliminar" class="btn btn-warning btn-sm" 
+                                        data-bs-id="<?php echo $_id; ?>" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#eliminaModal">Eliminar</a>
+                                </td>
+                            </tr>
                     <?php } ?>
                     <tr>
                         <td colspan="3"></td>
@@ -135,12 +136,18 @@ if($productos != null){
             </table>
         <?php }  ?>
         </div>
+
+        <?php if ($lista_carrito != null) { ?>
         <div class="row">
             <div class="col-md-5 offset-md-7 d-grid gap-2">
-            <button class="btn btn-primary btn-lg">Realizar pago</button>
-        </div> 
+                <a href="pago.php" class="btn btn-primary btn-lg">Realizar pago</a>
+            </div> 
         </div>
+        <?php }?>
+
     </div>
+
+
 </main>
     <!-- Modal -->
     <div class="modal fade" id="eliminaModal" tabindex="-1" aria-labelledby="eliminaModal" aria-hidden="true">
@@ -151,10 +158,10 @@ if($productos != null){
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Desea eliminar el producto de la lista?
+        
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerra</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button id="btn-elimina" type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
         </div>
         </div>

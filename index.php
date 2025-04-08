@@ -39,7 +39,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <div class="container">
                 <a href="index.php" class="navbar-brand"><strong>Tienda en línea</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="navbarHeader" aria-controls="navbarHeader" 
+                    data-bs-target="#navbarHeader" aria-controls="navbarHeader" 
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,7 +82,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['nombre'];?></h5>
-                        <p class="card-text"><?php echo number_format($row['precio'],2,'.',',');?></p>
+                        <p class="card-text">$ <?php echo number_format($row['precio'],2,'.',',');?></p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="details.php?id=<?php echo $row['id']; ?>&token=<?php echo
