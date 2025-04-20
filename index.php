@@ -11,8 +11,6 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 /*session_destroy()*/;
 
 
-
-
 ?>
 
 
@@ -37,7 +35,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <header>
         <div class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a href="index.php" class="navbar-brand"><strong>Tienda en línea</strong></a>
+                <a href="index.php" class="navbar-brand"><strong>Tienda Naturiss</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
                     data-bs-target="#navbarHeader" aria-controls="navbarHeader" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -64,12 +62,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <!-- Contenido principal -->
     <main>
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
             <?php
             foreach ($resultado as $row) { ?> 
             
             <div class="col">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm h-100 p-2">
                     <?php
                     $id= $row['id'];
                     $imagen = "./images/producto/" . $id . "/principal.jpg";
@@ -86,12 +84,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="details.php?id=<?php echo $row['id']; ?>&token=<?php echo
-                                hash_hmac('sha1',$row['id'], kEY_TOKEN); ?> " class="btn btn-primary">Detalles</a> 
+                                hash_hmac('sha1',$row['id'], kEY_TOKEN); ?> " class="btn btn-sm btn-primary">Detalles</a> 
                             </div>
 
-                            <button class="btn btn-outline-success" type="button" onclicK="addProducto
+                            <button class="btn btn-sm btn-outline-success" type="button" onclicK="addProducto
                             (<?php echo $row['id'] ?>, '<?php echo hash_hmac('sha1', $row['id'], 
-                            kEY_TOKEN); ?>')">Agregar al carrito</button> 
+                            kEY_TOKEN); ?>')">Agregar</button> 
                         </div>     
                     </div>
                 </div>

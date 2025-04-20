@@ -87,7 +87,7 @@ if($id == ''|| $token == ''){
     <header>
         <div class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-            <a href="index.php" class="navbar-brand"><strong>Tienda en línea</strong></a>
+            <a href="index.php" class="navbar-brand"><strong>Tienda Naturiss</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
                     data-bs-target="#navbarHeader" aria-controls="navbarHeader" 
                     aria-expanded="false" aria-label="Toggle navigation">
